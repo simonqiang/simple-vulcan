@@ -1,0 +1,23 @@
+import React from 'react';
+import { Components, registerComponent, withCurrentUser, getFragment } from 'meteor/vulcan:core';
+import { UsersCurrent } from 'meteor/vulcan:users';
+import Movies from '../../modules/movies/collection.js';
+
+const MoviesNewForm = ({currentUser}) =>
+
+  <div>
+
+    {Movies.options.mutations.new.check(currentUser) ?
+      <div style={{marginBottom: '20px', paddingBottom: '20px', borderBottom: '1px solid #ccc'}}>
+        <h4>Insert New Document</h4>
+        <Components.SmartForm 
+          collection={Movies}
+          mutationFragment={getFragment('MoviesItemFragment')}
+        /> 
+      </div> :
+      null
+    }
+
+  </div>
+
+registerComponent('MoviesNewForm', MoviesNewForm, withCurrentUser);
