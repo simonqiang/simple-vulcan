@@ -22,7 +22,7 @@ accounts-password@1.4.0
 # example-permissions
 # example-membership
 # example-interfaces
-# example-reactions
+ example-reactions
 
 vulcan:debug
-my-package
+#my-package

@@ -16,6 +16,13 @@ const resolvers = {
             return context.Movies.find(selector, options).count();            
         },
     },
+    single: {
+        name: 'moviesSingle',
+
+        resolver(root, {documentId}, context) {
+            return context.Movies.findOne(documentId);
+        }
+    },
 };
 
 export default resolvers;
